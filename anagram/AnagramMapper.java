@@ -22,9 +22,9 @@ public class AnagramMapper extends MapReduceBase implements Mapper<LongWritable,
   {
 
     String wordString = value.toString().trim();
-    char[] wordArray = wordString.toCharArray();
-    Arrays.sort(wordArray);
-    String wordStringSorted = String.valueOf(wordArray);
+    char[] wordArray = wordString.toCharArray();//get each character of the string to an array
+    Arrays.sort(wordArray); //then sorted, god bless java lib
+    String wordStringSorted = String.valueOf(wordArray);// and store the sorted string
     output.collect(new Text(wordStringSorted), new Text(wordString));
   }
 }
